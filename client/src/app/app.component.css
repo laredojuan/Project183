@@ -1,0 +1,10 @@
+body {
+  background: #f9faf4;
+  color: #343737;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+span.tag {
+  font-weight: bold;
+}

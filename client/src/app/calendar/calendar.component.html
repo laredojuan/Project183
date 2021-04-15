@@ -1,0 +1,67 @@
+<header class="topbar">
+  <ul>
+    <li>
+      <a>Hi {{ currentUser.username }}</a>
+    </li>
+    <li><a href="">Calendar</a></li>
+    <li style="float: right;">
+      <a class="active" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</header>
+
+<div class="header">
+  <div>
+    <select id="month" #m (change)="changeMonth(m.value)">
+      <option>Month</option>
+      <option *ngFor="let month of Months" value="{{ month.id }}">{{
+        month.name
+      }}</option>
+    </select>
+  </div>
+
+  <div>
+    <select id="date" #d (change)="changeDate(d.value)">
+      <option>Date</option>
+      <option *ngFor="let date of dates" value="{{ date }}">{{ date }}</option>
+    </select>
+  </div>
+
+  <div>
+    <select id="year" #y (change)="changeYear(y.value)">
+      <option>Year</option>
+      <option *ngFor="let i of arrayThree(101, 1920)" value="{{ i }}">
+        {{ i }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button (click)="fetchDetails()">Get your sign</button>
+  </div>
+</div>
+
+<div class="placeholder">
+  <div class="cover">
+    <img class="img-responsive" src="{{ coverImage }}" />
+  </div>
+
+  <div id="content" [innerHTML]="displayString"></div>
+</div>
+
+<div *ngIf="isLoading" class="loading">
+  <div class="loadingio-spinner-gear-p23r6blrvgn">
+    <div class="ldio-y14h5djkdzp">
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home" [innerHTML]="homeContent"></div>

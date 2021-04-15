@@ -1,0 +1,37 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <h2 class="active">Sign In</h2>
+    <form>
+      <input
+        type="text"
+        id="login"
+        class="fadeIn second"
+        name="login"
+        placeholder="login"
+        #username
+      />
+      <input
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="login"
+        placeholder="password"
+        #password
+      />
+      <input
+        type="button"
+        (click)="
+          login({
+            username: username.value,
+            password: password.value
+          })
+        "
+        class="fadeIn fourth"
+        value="Log In"
+      />
+      <div class="errors" *ngIf="isError">
+        <span>{{ error }}</span>
+      </div>
+    </form>
+  </div>
+</div>
